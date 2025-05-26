@@ -1,0 +1,165 @@
+<% layout("/layouts/boilerplates")%>
+<body>
+     <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Keep Our City Clean Together</h2>
+                <p>Report waste issues, track cleanup progress, and help build a cleaner, healthier community for everyone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Cards -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card pending">
+                    <div class="stat-icon">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <div class="stat-number" id="pendingCount">1</div>
+                    <div class="stat-label">Pending Reports</div>
+                </div>
+                <div class="stat-card progress">
+                    <div class="stat-icon">
+                        <i data-lucide="alert-triangle"></i>
+                    </div>
+                    <div class="stat-number" id="progressCount">1</div>
+                    <div class="stat-label">In Progress</div>
+                </div>
+                <div class="stat-card resolved">
+                    <div class="stat-icon">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <div class="stat-number" id="resolvedCount">1</div>
+                    <div class="stat-label">Resolved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Map Section -->
+    <section class="map-section">
+    <div class="container">
+        <div class="section-card">
+            <div class="section-header">
+                <h3><i data-lucide="map-pin"></i> Waste Locations Map</h3>
+                <p>Click on the map to report a new waste issue or view existing reports</p>
+            </div>
+            <div class="map-container" id="wasteMap">
+                <!-- Map will be rendered here by JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Recent Reports -->
+    <section class="reports-section">
+        <div class="container">
+            <div class="section-card">
+                <div class="section-header">
+                    <h3><i data-lucide="trash-2"></i> Recent Reports</h3>
+                    <p>Latest waste management reports from the community</p>
+                </div>
+                <div class="reports-list" id="reportsList">
+                    <!-- Reports will be rendered here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <div class="container">
+            <div class="section-card">
+                <div class="section-header">
+                    <h3><i data-lucide="lightbulb"></i> Waste Reduction Tips</h3>
+                    <p>Learn how to reduce waste and help keep our community clean</p>
+                </div>
+                <div class="tips-grid" id="tipsGrid">
+                    <!-- Tips will be rendered here -->
+                </div>
+                <div class="pro-tip">
+                    <h4>💡 Pro Tip</h4>
+                    <p>Set up a weekly reminder to check your neighborhood for waste issues. Small actions by everyone can make a big difference in keeping our community clean!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Modal -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i data-lucide="map-pin"></i> Report Waste Issue</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form id="reportForm">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="e.g., Main Street & 5th Ave" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type of Issue</label>
+                    <select id="type" required>
+                        <option value="">Select issue type</option>
+                        <option value="Overflowing Bin">Overflowing Bin</option>
+                        <option value="Illegal Dumping">Illegal Dumping</option>
+                        <option value="Litter">Litter</option>
+                        <option value="Hazardous Waste">Hazardous Waste</option>
+                        <option value="Construction Debris">Construction Debris</option>
+                        <option value="Electronic Waste">Electronic Waste</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="urgency">Urgency Level</label>
+                    <select id="urgency">
+                        <option value="low">Low - Can wait a few days</option>
+                        <option value="medium" selected>Medium - Should be addressed soon</option>
+                        <option value="high">High - Needs immediate attention</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Describe the issue in detail..." rows="3" required></textarea>
+                </div>
+                <div class="photo-upload">
+                    <i data-lucide="camera"></i>
+                    <p>Photo upload feature coming soon</p>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i data-lucide="send"></i>
+                        Submit Report
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/frontpage.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/pickup.js"></script>
+    <script src="js/status.js"></script>
+    <script src="js/tips.js"></script>
+    <script src="js/leaderboard.js"></script>
+    <script src="js/logout.js"></script>
+    
+    
+    
+    <script>
+      document.getElementById('logoutBtn').addEventListener('click', function() {
+        firebase.auth().signOut().then(function() {
+          window.location.href = 'landing.html';
+        });
+      });
+    </script>
+</body>
