@@ -1,11 +1,3 @@
-console.log("JS is connected!");
-
-document.addEventListener('DOMContentLoaded', () => {
-    alert("Welcome!");
-});
-
-
-
 
 
 // Initialize the map
@@ -23,11 +15,11 @@ function initializeMap() {
                 <line x1="70%" y1="0%" x2="65%" y2="100%" stroke="#10b981" stroke-width="3" opacity="0.3" />
             </svg>
         </div>
-        <form id="reportForm" class="hidden" action="map.html">
+        <form id="reportForm" class="hidden"  action="map.html">
         <div class="map-controls">
             <button class="btn btn-primary" onclick="document.getElementById('reportBtn').click()">
                 <i data-lucide="map-pin"></i>
-                Add Report
+                 Reports
             </button>
         </div>
         </form>

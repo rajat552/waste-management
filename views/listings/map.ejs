@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waste Report App</title>
+
+  <!-- Leaflet CSS (for map) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Report Waste in Your Area</h1>
+    <p>Click on the map to add a new report</p>
+  </header>
+
+  <!-- MAP DIV -->
+  <div id="map"></div>
+
+  <footer>
+    <p>&copy; 2025 Waste Report App</p>
+  </footer>
+
+  <!-- Leaflet JS (for map) -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Your Script -->
+  <script src="js/map2.js"></script>
+</body>
+</html>

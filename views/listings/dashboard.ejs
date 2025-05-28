@@ -1,0 +1,40 @@
+<% layout("/layouts/boilerplates")%>
+
+<body>
+    <div class="dashboard-container">
+        <h1>CleanCity Dashboard</h1>
+        <p>This is a placeholder for the admin/municipality dashboard.</p>
+        
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <h3>Total Reports</h3>
+                <div class="stat-number" id="totalReports">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Pending Action</h3>
+                <div class="stat-number" id="pendingAction">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Resolved Today</h3>
+                <div class="stat-number" id="resolvedToday">0</div>
+            </div>
+        </div>
+        
+        <a href="index.html" class="btn btn-primary">Back to Main App</a>
+    </div>
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="js/frontpage.js"></script>
+    <script>
+        // Update dashboard stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalReports = reports ? reports.length : 0;
+            const pendingAction = reports ? reports.filter(r => r.status === 'pending').length : 0;
+            const resolvedToday = reports ? reports.filter(r => r.status === 'resolved' && r.date === new Date().toISOString().split('T')[0]).length : 0;
+            
+            document.getElementById('totalReports').textContent = totalReports;
+            document.getElementById('pendingAction').textContent = pendingAction;
+            document.getElementById('resolvedToday').textContent = resolvedToday;
+        });
+    </script>
+</body>
