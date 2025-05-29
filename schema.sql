@@ -1,3 +1,5 @@
+CREATE DATABASE Waste_Management ;
+
 Use  Waste_Management ;
 
 CREATE TABLE user (
