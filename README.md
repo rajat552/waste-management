@@ -50,7 +50,7 @@ Import the database schema if you have a schema.sql file:
 bash
 Copy
 Edit
-mysql -u your-username -p my_database < schema.sql
+mysql -u rootWaste_Management -p my_database < schema.sql
 Update your database configuration in the project (usually in a .env file or config file) with your MySQL username, password, and database name.
 
 5. Start the Node.js server:
@@ -64,7 +64,7 @@ node app.js
 arduino
 Copy
 Edit
-http://localhost:8080
+http://localhost:8080/main
 (Or the port your server uses)
 
 
